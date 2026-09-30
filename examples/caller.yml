@@ -1,0 +1,7 @@
+name: lint
+on: [push, pull_request]
+jobs:
+  call-shellcheck:
+    uses: asadtahta95/ci-templates/.github/workflows/reusable-shellcheck.yml@main
+  call-trivy:
+    uses: asadtahta95/ci-templates/.github/workflows/reusable-trivy.yml@main

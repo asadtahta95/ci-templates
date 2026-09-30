@@ -1,0 +1,14 @@
+name: Reusable Compose Lint
+on:
+  workflow_call:
+    inputs:
+      compose-file:
+        default: docker-compose.yml
+        type: string
+jobs:
+  compose:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate compose
+        run: docker compose -f ${{ inputs.compose-file }} config --quiet
